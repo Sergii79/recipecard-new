@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const RecipeCard = ({
-  item: { image, name, time, servings, calories },
+  item: { image, name, time, servings, calories, difficulty },
 }) => {
   return (
     <div>
@@ -24,9 +24,9 @@ export const RecipeCard = ({
       <div>
         <h3>Difficulty</h3>
         <div>
-          <span>Easy</span>
-          <span>Medium</span>
-          <span>Hard</span>
+          <span>easy</span>
+          <span>medium</span>
+          <span>hard</span>
         </div>
       </div>
     </div>
@@ -40,5 +40,6 @@ RecipeCard.propTypes = {
     time: PropTypes.number.isRequired,
     servings: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
+    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']).isRequired,
   }).isRequired,
 };
