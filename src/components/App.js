@@ -9,3 +9,4 @@ export const App = () => {
   );
 };
 console.log(RecipeList);
+console.log(RecipeList);
