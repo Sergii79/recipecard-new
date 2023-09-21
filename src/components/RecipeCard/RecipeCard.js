@@ -1,4 +1,10 @@
 import PropTypes from 'prop-types';
+import {
+  AiOutlineClockCircle,
+  AiOutlinePieChart,
+  AiOutlineBarChart,
+} from 'react-icons/ai';
+// AiOutlineClockCircle;
 
 export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
@@ -8,18 +14,18 @@ export const RecipeCard = ({
       <img src={image} alt={name} width={240} />
       <h2>{name}</h2>
       <div style={{ display: 'flex', gap: 8 }}>
-        <div>
-          <span>icon</span>
-          <p>{time} min</p>
-        </div>
-        <div>
-          <span>icon</span>
-          <p>{servings} servings</p>
-        </div>
-        <div>
-          <span>icon</span>
-          <p>{calories} calories</p>
-        </div>
+        <p>
+          <AiOutlineClockCircle size="24" />
+          <span>{time} min</span>
+        </p>
+        <p>
+          <AiOutlinePieChart size="24" />
+          <span>{servings} servings</span>
+        </p>
+        <p>
+          <AiOutlineBarChart size="24" />
+          <span>{calories} calories</span>
+        </p>
       </div>
       <div>
         <h3>Difficulty</h3>
