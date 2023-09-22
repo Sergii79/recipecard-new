@@ -4,7 +4,7 @@ import {
   AiOutlinePieChart,
   AiOutlineBarChart,
 } from 'react-icons/ai';
-// AiOutlineClockCircle;
+import { RecipeInfo } from './RecipeCard.styled';
 
 export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
@@ -13,7 +13,8 @@ export const RecipeCard = ({
     <div>
       <img src={image} alt={name} width={240} />
       <h2>{name}</h2>
-      <div style={{ display: 'flex', gap: 8 }}>
+
+      <RecipeInfo>
         <p>
           <AiOutlineClockCircle size="24" />
           <span>{time} min</span>
@@ -26,7 +27,8 @@ export const RecipeCard = ({
           <AiOutlineBarChart size="24" />
           <span>{calories} calories</span>
         </p>
-      </div>
+      </RecipeInfo>
+
       <div>
         <h3>Difficulty</h3>
         <div>
