@@ -1,3 +1,4 @@
+import { RecipeDifficulty } from 'constants';
 import styled from 'styled-components';
 
 export const RecipeInfo = styled.div`
@@ -33,11 +34,35 @@ export const Badge = styled.span`
   border-radius: ${p => p.theme.radii.lg};
   padding: 4px 12px;
 
-  background-color: ${p => {
-    console.log(p);
-    return p.active ? p.theme.colors.accent : p.theme.colors.white;
+  background-color: ${({ active, theme, type }) => {
+    if (!active) {
+      return theme.colors.white;
+    }
+    switch (type) {
+      case RecipeDifficulty.easy:
+        return 'green';
+      case RecipeDifficulty.medium:
+        return 'orange';
+      case RecipeDifficulty.hard:
+        return 'red';
+      default:
+        throw new Error(`Unknown badge type ${type}`);
+    }
   }};
   color: ${p => {
     return p.active ? p.theme.colors.white : p.theme.colors.black;
   }};
 `;
+
+// export const Badge = styled.span`
+//   border: 1px solid ${p => p.theme.colors.black};
+//   border-radius: ${p => p.theme.radii.lg};
+//   padding: 4px 12px;
+
+//   background-color: ${p => {
+//     return p.active ? p.theme.colors.accent : p.theme.colors.white;
+//   }};
+//   color: ${p => {
+//     return p.active ? p.theme.colors.white : p.theme.colors.black;
+//   }};
+// `;

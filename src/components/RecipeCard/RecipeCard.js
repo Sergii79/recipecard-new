@@ -11,11 +11,11 @@ import {
   Name,
   RecipeInfo,
 } from './RecipeCard.styled';
+import { RecipeDifficulty } from 'constants';
 
 export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
 }) => {
-  console.log(difficulty);
   return (
     <div>
       <img src={image} alt={name} width={240} />
@@ -39,9 +39,24 @@ export const RecipeCard = ({
       <div>
         <h3>Difficulty</h3>
         <BadgeList>
-          <Badge active={difficulty === 'easy'}>easy</Badge>
-          <Badge active={difficulty === 'medium'}>medium</Badge>
-          <Badge active={difficulty === 'easy'}>hard</Badge>
+          <Badge
+            active={difficulty === RecipeDifficulty.easy}
+            type={RecipeDifficulty.easy}
+          >
+            easy
+          </Badge>
+          <Badge
+            active={difficulty === RecipeDifficulty.medium}
+            type={RecipeDifficulty.medium}
+          >
+            medium
+          </Badge>
+          <Badge
+            active={difficulty === RecipeDifficulty.hard}
+            type={RecipeDifficulty.hard}
+          >
+            hard
+          </Badge>
         </BadgeList>
       </div>
     </div>
