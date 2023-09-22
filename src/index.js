@@ -16,6 +16,12 @@ const theme = {
     md: '8px',
     lg: '16px',
   },
+  icon: {
+    xs: '15px',
+    sm: '20px',
+    md: '25px',
+    lg: '30px',
+  },
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(

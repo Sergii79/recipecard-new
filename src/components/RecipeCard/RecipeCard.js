@@ -15,6 +15,7 @@ import {
 export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
 }) => {
+  console.log(difficulty);
   return (
     <div>
       <img src={image} alt={name} width={240} />
@@ -22,15 +23,15 @@ export const RecipeCard = ({
 
       <RecipeInfo>
         <InfoBlock>
-          <AiOutlineClockCircle size="24" />
+          <AiOutlineClockCircle />
           <span>{time} min</span>
         </InfoBlock>
         <InfoBlock>
-          <AiOutlinePieChart size="24" />
+          <AiOutlinePieChart />
           <span>{servings} servings</span>
         </InfoBlock>
         <InfoBlock>
-          <AiOutlineBarChart size="24" />
+          <AiOutlineBarChart />
           <span>{calories} calories</span>
         </InfoBlock>
       </RecipeInfo>
@@ -38,9 +39,9 @@ export const RecipeCard = ({
       <div>
         <h3>Difficulty</h3>
         <BadgeList>
-          <Badge>easy</Badge>
-          <Badge>medium</Badge>
-          <Badge>hard</Badge>
+          <Badge active={difficulty === 'easy'}>easy</Badge>
+          <Badge active={difficulty === 'medium'}>medium</Badge>
+          <Badge active={difficulty === 'easy'}>hard</Badge>
         </BadgeList>
       </div>
     </div>
