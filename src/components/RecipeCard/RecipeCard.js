@@ -4,7 +4,13 @@ import {
   AiOutlinePieChart,
   AiOutlineBarChart,
 } from 'react-icons/ai';
-import { RecipeInfo } from './RecipeCard.styled';
+import {
+  Badge,
+  BadgeList,
+  InfoBlock,
+  Name,
+  RecipeInfo,
+} from './RecipeCard.styled';
 
 export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
@@ -12,30 +18,30 @@ export const RecipeCard = ({
   return (
     <div>
       <img src={image} alt={name} width={240} />
-      <h2>{name}</h2>
+      <Name>{name}</Name>
 
       <RecipeInfo>
-        <p>
+        <InfoBlock>
           <AiOutlineClockCircle size="24" />
           <span>{time} min</span>
-        </p>
-        <p>
+        </InfoBlock>
+        <InfoBlock>
           <AiOutlinePieChart size="24" />
           <span>{servings} servings</span>
-        </p>
-        <p>
+        </InfoBlock>
+        <InfoBlock>
           <AiOutlineBarChart size="24" />
           <span>{calories} calories</span>
-        </p>
+        </InfoBlock>
       </RecipeInfo>
 
       <div>
         <h3>Difficulty</h3>
-        <div>
-          <span>easy</span>
-          <span>medium</span>
-          <span>hard</span>
-        </div>
+        <BadgeList>
+          <Badge>easy</Badge>
+          <Badge>medium</Badge>
+          <Badge>hard</Badge>
+        </BadgeList>
       </div>
     </div>
   );
