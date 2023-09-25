@@ -13,15 +13,29 @@ export const InfoBlock = styled.p`
   font-weight: 10;
 
   svg {
-    color: ${props => props.theme.colors.accent};
-    width: ${props => props.theme.icon.md};
-    height: ${props => props.theme.icon.md};
+    color: ${p => p.theme.colors.accent};
+    width: ${p => p.theme.icon.md};
+    height: ${p => p.theme.icon.md};
   }
 `;
 
 export const Name = styled.h2`
   margin-top: 10px;
   margin-bottom: 15px;
+
+  pointer-events: none;
+
+  :hover {
+    color: orange;
+    /* color: ${p => p.theme.colors.accent}; */
+  }
+
+  :hover {
+    color: ${p => p.theme.colors.accent};
+  }
+
+  &.active {
+  }
 `;
 
 export const BadgeList = styled.div`

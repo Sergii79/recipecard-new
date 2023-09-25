@@ -4,5 +4,4 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  /* background-color: ${props => props.theme.colors.accent}; */
 `;
