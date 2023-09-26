@@ -3,6 +3,8 @@ import {
   AiOutlineClockCircle,
   AiOutlinePieChart,
   AiOutlineBarChart,
+  AiFillDelete,
+  AiOutlineSearch,
 } from 'react-icons/ai';
 import {
   Badge,
@@ -10,6 +12,7 @@ import {
   InfoBlock,
   Name,
   RecipeInfo,
+  InfoButton,
 } from './RecipeCard.styled';
 import { RecipeDifficulty } from 'constants';
 
@@ -58,6 +61,15 @@ export const RecipeCard = ({
             hard
           </Badge>
         </BadgeList>
+
+        <>
+          <InfoButton>
+            <AiFillDelete />
+          </InfoButton>
+          <InfoButton>
+            <AiOutlineSearch />
+          </InfoButton>
+        </>
       </div>
     </div>
   );

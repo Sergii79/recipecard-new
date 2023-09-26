@@ -68,6 +68,19 @@ export const Badge = styled.span`
   }};
 `;
 
+export const InfoButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* font-weight: 10; */
+
+  svg {
+    color: ${p => p.theme.colors.accent};
+    width: ${p => p.theme.icon.md};
+    height: ${p => p.theme.icon.md};
+  }
+`;
+
 // export const Badge = styled.span`
 //   border: 1px solid ${p => p.theme.colors.black};
 //   border-radius: ${p => p.theme.radii.lg};
