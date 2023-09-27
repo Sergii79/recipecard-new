@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 export const ContaynerCard = styled.div`
   position: relative;
-  /* display: flex;
-  gap: 10px; */
 `;
 
 export const RecipeInfo = styled.div`
@@ -88,6 +86,10 @@ export const InfoButton = styled.button`
     color: ${p => p.theme.colors.black};
     width: ${p => p.theme.icon.md};
     height: ${p => p.theme.icon.md};
+  }
+
+  :hover {
+    color: ${p => p.theme.colors.accent};
   }
 `;
 
