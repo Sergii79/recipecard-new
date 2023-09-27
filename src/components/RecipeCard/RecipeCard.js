@@ -7,11 +7,13 @@ import {
   AiOutlineSearch,
 } from 'react-icons/ai';
 import {
+  ContaynerCard,
   Badge,
   BadgeList,
   InfoBlock,
   Name,
   RecipeInfo,
+  BoxButton,
   InfoButton,
 } from './RecipeCard.styled';
 import { RecipeDifficulty } from 'constants';
@@ -20,7 +22,7 @@ export const RecipeCard = ({
   item: { image, name, time, servings, calories, difficulty },
 }) => {
   return (
-    <div>
+    <ContaynerCard>
       <img src={image} alt={name} width={240} />
       <Name>{name}</Name>
 
@@ -61,17 +63,16 @@ export const RecipeCard = ({
             hard
           </Badge>
         </BadgeList>
-
-        <>
-          <InfoButton>
-            <AiFillDelete />
-          </InfoButton>
-          <InfoButton>
-            <AiOutlineSearch />
-          </InfoButton>
-        </>
       </div>
-    </div>
+      <BoxButton>
+        <InfoButton>
+          <AiFillDelete />
+        </InfoButton>
+        <InfoButton>
+          <AiOutlineSearch />
+        </InfoButton>
+      </BoxButton>
+    </ContaynerCard>
   );
 };
 

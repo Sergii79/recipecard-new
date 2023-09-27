@@ -1,6 +1,12 @@
 import { RecipeDifficulty } from 'constants';
 import styled from 'styled-components';
 
+export const ContaynerCard = styled.div`
+  position: relative;
+  /* display: flex;
+  gap: 10px; */
+`;
+
 export const RecipeInfo = styled.div`
   display: flex;
   gap: 10px;
@@ -68,14 +74,18 @@ export const Badge = styled.span`
   }};
 `;
 
-export const InfoButton = styled.button`
+export const BoxButton = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 70px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  /* font-weight: 10; */
+  gap: 10px;
+`;
 
+export const InfoButton = styled.button`
   svg {
-    color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.black};
     width: ${p => p.theme.icon.md};
     height: ${p => p.theme.icon.md};
   }
