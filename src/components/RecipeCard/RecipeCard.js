@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   AiOutlineClockCircle,
@@ -18,63 +19,81 @@ import {
 } from './RecipeCard.styled';
 import { RecipeDifficulty } from 'constants';
 
-export const RecipeCard = ({
-  item: { image, name, time, servings, calories, difficulty },
-}) => {
-  return (
-    <ContaynerCard>
-      <img src={image} alt={name} width={240} />
-      <Name>{name}</Name>
+export class RecipeCard extends Component {
+  state = {
+    selectedImg: null,
+  };
 
-      <RecipeInfo>
-        <InfoBlock>
-          <AiOutlineClockCircle />
-          <span>{time} min</span>
-        </InfoBlock>
-        <InfoBlock>
-          <AiOutlinePieChart />
-          <span>{servings} servings</span>
-        </InfoBlock>
-        <InfoBlock>
-          <AiOutlineBarChart />
-          <span>{calories} calories</span>
-        </InfoBlock>
-      </RecipeInfo>
+  setSelectImage = () => {
+    this.setState({
+      selectedImg: this.props.item.image,
+    });
+    console.log(this.props.item.image);
+  };
 
-      <div>
-        <h3>Difficulty</h3>
-        <BadgeList>
-          <Badge
-            active={difficulty === RecipeDifficulty.easy}
-            type={RecipeDifficulty.easy}
-          >
-            easy
-          </Badge>
-          <Badge
-            active={difficulty === RecipeDifficulty.medium}
-            type={RecipeDifficulty.medium}
-          >
-            medium
-          </Badge>
-          <Badge
-            active={difficulty === RecipeDifficulty.hard}
-            type={RecipeDifficulty.hard}
-          >
-            hard
-          </Badge>
-        </BadgeList>
-      </div>
-      <BoxButton>
-        <InfoButton>
-          <AiFillDelete />
-        </InfoButton>
-        <InfoButton>
-          <AiOutlineSearch />
-        </InfoButton>
-      </BoxButton>
-    </ContaynerCard>
-  );
-};
+  render() {
+    const {
+      item: { id, image, name, time, servings, calories, difficulty },
+      onDelete,
+    } = this.props;
+    return (
+      <ContaynerCard>
+        <img src={image} alt={name} width={240} />
+        <Name>{name}</Name>
+
+        <RecipeInfo>
+          <InfoBlock>
+            <AiOutlineClockCircle />
+            <span>{time} min</span>
+          </InfoBlock>
+          <InfoBlock>
+            <AiOutlinePieChart />
+            <span>{servings} servings</span>
+          </InfoBlock>
+          <InfoBlock>
+            <AiOutlineBarChart />
+            <span>{calories} calories</span>
+          </InfoBlock>
+        </RecipeInfo>
+
+        <div>
+          <h3>Difficulty</h3>
+          <BadgeList>
+            <Badge
+              active={difficulty === RecipeDifficulty.easy}
+              type={RecipeDifficulty.easy}
+            >
+              easy
+            </Badge>
+            <Badge
+              active={difficulty === RecipeDifficulty.medium}
+              type={RecipeDifficulty.medium}
+            >
+              medium
+            </Badge>
+            <Badge
+              active={difficulty === RecipeDifficulty.hard}
+              type={RecipeDifficulty.hard}
+            >
+              hard
+            </Badge>
+          </BadgeList>
+        </div>
+        <BoxButton>
+          <InfoButton aria-label="Delete" onClick={() => onDelete(id)}>
+            <AiFillDelete />
+          </InfoButton>
+          <InfoButton aria-label="Zoom" onClick={this.setSelectImage}>
+            <AiOutlineSearch />
+          </InfoButton>
+        </BoxButton>
+        <div>
+          Imege modal <p>selectedImg</p>
+        </div>
+      </ContaynerCard>
+    );
+  }
+}
 
 RecipeCard.propTypes = {
   item: PropTypes.shape({
