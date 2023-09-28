@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 export const ContaynerCard = styled.div`
   position: relative;
+  border: 1px solid;
+  border-radius: ${p => p.theme.radii.sm};
+  width: 300px;
 `;
 
 export const RecipeInfo = styled.div`

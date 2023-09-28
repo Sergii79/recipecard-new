@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { RecipeDifficulty } from 'constants';
 import {
   AiOutlineClockCircle,
   AiOutlinePieChart,
@@ -17,7 +18,7 @@ import {
   BoxButton,
   InfoButton,
 } from './RecipeCard.styled';
-import { RecipeDifficulty } from 'constants';
+import { ImageModal } from 'components/ImageModal/ImageModal';
 
 export class RecipeCard extends Component {
   state = {
@@ -31,7 +32,14 @@ export class RecipeCard extends Component {
     console.log(this.props.item.image);
   };
 
+  closeModal = () => {
+    this.setState({
+      selectedImg: null,
+    });
+  };
+
   render() {
+    const { selectedImg } = this.state;
     const {
       item: { id, image, name, time, servings, calories, difficulty },
       onDelete,
@@ -87,9 +95,11 @@ export class RecipeCard extends Component {
             <AiOutlineSearch />
           </InfoButton>
         </BoxButton>
-        <div>
-          Imege modal <p>selectedImg</p>
-        </div>
+        <ImageModal
+          isOpen={selectedImg !== null}
+          onClose={this.closeModal}
+          image={selectedImg}
+        />
       </ContaynerCard>
     );
   }
