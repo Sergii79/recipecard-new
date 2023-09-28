@@ -106,6 +106,7 @@ export class RecipeCard extends Component {
 }
 
 RecipeCard.propTypes = {
+  onDelete: PropTypes.func.isRequired,
   item: PropTypes.shape({
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
