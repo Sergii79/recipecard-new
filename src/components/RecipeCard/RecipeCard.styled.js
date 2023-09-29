@@ -3,9 +3,12 @@ import styled from 'styled-components';
 
 export const ContaynerCard = styled.div`
   position: relative;
-  border: 1px solid;
-  border-radius: ${p => p.theme.radii.sm};
-  width: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
 `;
 
 export const RecipeInfo = styled.div`

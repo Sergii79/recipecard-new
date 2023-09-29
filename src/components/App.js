@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { RecipeList } from './RecipeList/RecipeList';
+import { RecipeForm } from './RecipeForm/RecipeForm';
 import initialRecipes from '../recipes.json';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout/layout';
@@ -7,6 +8,12 @@ import { Layout } from './Layout/layout';
 export class App extends Component {
   state = {
     recipes: initialRecipes,
+  };
+
+  addRecipe = newRecipe => {
+    this.setState(prevState => ({
+      recipes: [...prevState.recipes, newRecipe],
+    }));
   };
 
   deleteRecipe = recipeId => {
@@ -19,6 +26,7 @@ export class App extends Component {
   render() {
     return (
       <Layout>
+        <RecipeForm onSave={this.addRecipe} />
         <RecipeList items={this.state.recipes} onDelete={this.deleteRecipe} />
         <GlobalStyle />
       </Layout>
