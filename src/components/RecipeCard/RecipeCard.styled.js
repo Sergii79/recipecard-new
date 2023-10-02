@@ -13,7 +13,6 @@ export const ContaynerCard = styled.div`
 
 export const RecipeInfo = styled.div`
   display: flex;
-  /* display: flex; */
   gap: 10px;
 `;
 
