@@ -11,6 +11,7 @@ const theme = {
     white: '#fff',
     accent: 'orangered',
     error: 'red',
+    // error: 'red',
   },
   radii: {
     xs: '2px',
