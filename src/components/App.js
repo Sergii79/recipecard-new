@@ -4,7 +4,6 @@ import { RecipeForm } from './RecipeForm/RecipeForm';
 import initialRecipes from '../recipes.json';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout/layout';
-// import { Layout } from './Layout/layout';
 
 export class App extends Component {
   state = {
